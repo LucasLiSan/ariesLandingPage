@@ -1,12 +1,15 @@
-function openMenu() {
-    const ul = document.querySelector('.topNavMenu ul');
-    ul.style.display = ul.style.display === 'flex' ? 'none' : 'flex';
-}
-
-document.addEventListener('click', function(event) {
-    const menu = document.querySelector('.topNavMenu');
-    const ul = document.querySelector('.topNavMenu ul');
-    const icon = document.querySelector('.icon');
-    const iconDisplay = window.getComputedStyle(icon).display;
-    if (iconDisplay !== 'none' && !menu.contains(event.target)) { ul.style.display = 'none'; }
-});
+const getHours = () => {
+    const clock = document.getElementsByClassName('clock')[0]
+    const date = new Date()
+    const hours = date.getHours()
+    const minutes = date.getMinutes()
+    const seconds = date.getSeconds()
+    const hour = hours < 10 ? `0${hours}` : hours
+    const minute = minutes < 10 ? `0${minutes}` : minutes
+    const second = seconds < 10 ? `0${seconds}` : seconds
+    clock.innerHTML = `${hour}:${minute}:${second}`
+  }
+  
+  setInterval(() => {
+    getHours()
+  }, 1000)

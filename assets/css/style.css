@@ -1,134 +1,82 @@
-/* ---------- HOVER-ACTIVE-FOCUS EFFECTS ---------- */
-.topNavMenu a:hover {
-    text-shadow: 4px 0px 4px #000000;
-    color: #fdffa4;
-}
-/* ---------- HOVER-ACTIVE-FOCUS EFFECTS ---------- */
-
-
-:root {
-    --colorOne: #ff124f;
-    --colorTwo: #ff00a0;
-    --colorThree: #fe75fe;
-    --colorFour: #7a04eb;
-    --colorFive: #120458;
-}
-
-*, *::before,
-*::after {
+* {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    overflow: hidden;
-    height: 100%;
 }
 
 body {
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    height: 100vh;
-    perspective: 1px;
-    transform-style: preserve-3d;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background: linear-gradient(180deg, #120458 0%, rgb(26, 58, 130) 37%, rgb(171, 36, 177) 69%, #ff124f 100%);
-}
-
-.topNavMenu {
-    position: relative;
-    width: 100%;
-    height: 4rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-    z-index: 1;
-}
-
-.icon { display: none; } /*Menu responsividade*/
-
-.topNavMenu ul {
-    width: 95%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.topNavMenu li {
-    width: 10%;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    text-align: center;
-    align-items: center;
-    list-style: none;
-}
-
-.topNavMenu a {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    align-content: center;
-    text-decoration: none;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-weight: bolder;
-    font-size: 1.5rem;
-}
-.overlay {
-    position: relative;
     width: 100vw;
     height: 100vh;
-    top: -4rem;
-    background-color: transparent;
-    background-size: 5px 5px, 5px 5px;
-    background-position:  -1px -1px, -1px -1px;
-    background-image:
-        linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
-    mix-blend-mode: difference;
-}
-
-.glitch {
-    clip-path: polygon(0 0, 100% 0, 100% .5em, 0 .5em);
-    animation: glitch 10s linear infinite;
-    transform: translatex(.1rem);
-}
-
-@keyframes glitch {
-    to {
-        clip-path: polygon(0 calc(100% - .5em), 100% calc(100% - .5em), 0 100%, 0 100%)
-    }
+    position: absolute;
+    overflow: hidden;
+    background: url("/assets/imgs/backgroundImg.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Verdana, sans-serif;
 }
 
 main {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 96%;
 }
 
-section {
+footer {
     width: 100%;
-    height: 30%;
+    height: 4%;
+    position: relative;
+    background-color: #245DDA;
+    box-shadow: #5484B1 0px -3px 1px 0px;
+    display: grid;
+    grid-template: "start taskbar clock" 100% / 7% 1fr 6%;
+}
+
+.start {
+    grid-area: start;
+    align-content: center;
+    list-style: none;
+}
+
+.start li {
+    width: 95%;
+    height: 99%;
+    font-size: 1.4rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #333;
+    font-style: italic;
+    background: radial-gradient(circle, #5eac56 0%, #3c873c 100%) center/cover no-repeat;
+    box-shadow: 0px 5px 10px #79ce71 inset;
+    border-radius: 0px 10px 15px 0px;
+    border: none;
+    transform: skewX(-3deg);
+    text-align: center;
+    align-content: center;  
+}
+
+.taskbar { grid-area: taskbar; }
+
+.clock {
+    grid-area: clock;
+    text-align: center;
+    align-content: center;
+    color: #ffffff;
+    background-color: #068EE5;
 }
 
 /* ---------- RESPONSIVIDADE ---------- */
-@media (max-width: 1023px) {
-    .icon {
-        width: 100%;
-        height: 100%;
-        display: block;
-        text-align: center;
-    }
-
-    .topNavMenu ul { display: none;}
+@media (width > 1440px) {
+    body { background-size: cover; }
 }
 
+@media (width < 1025px) {
+    footer { grid-template: "start taskbar clock" 100% / 10% 1fr 8%; }
+}
+
+@media (width < 769px) {
+    footer { grid-template: "start taskbar clock" 100% / 15% 1fr 10%; }
+}
+
+@media (width < 426px) {
+    footer { grid-template: "start taskbar clock" 100% / 30% 1fr 23%; }
+}
 
 /* ---------- RESPONSIVIDADE ---------- */
