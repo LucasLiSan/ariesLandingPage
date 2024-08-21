@@ -1,0 +1,175 @@
+/* ---------- HOVER - ACTIVE - FOCUS ---------- */
+.desktopIcons:focus > i { 
+    color: var(--colorThree);
+}
+
+.desktopIcons:focus > label { 
+    text-shadow: 1px 1px 2px var(--colorThree);
+    -webkit-text-stroke: 1px var(--colorThree);
+}
+
+/* ---------- HOVER - ACTIVE - FOCUS ---------- */
+
+:root {
+    --colorOne: #ff00c1;
+    --colorTwo: #9600ff;
+    --colorThree: #4900ff;
+    --colorFour: #00b8ff;
+    --colorFive: #00fff9;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    background: url("/imgs/backgroundImg.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Verdana, sans-serif;
+}
+
+main {
+    width: 100%;
+    height: 96%;
+    display: flex;
+}
+
+aside {
+    position: relative;
+    width: 20%;
+    height: 100%;
+    display: grid;
+    grid-template:
+        "who" 7rem
+        "projects" 7rem
+        "team" 7rem
+        "services" 7rem
+        / 7rem
+    ;
+    grid-gap: 1rem;
+}
+
+.desktopIcons {
+    display: flex;
+    flex-direction: column;
+}
+
+.desktopIcons label, .desktopIcons i {
+    width: 100%;
+    height: 50%;
+    text-align: center;
+}
+
+.desktopIcons label {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    text-overflow: ellipsis;
+}
+
+.desktopIcons i {
+    align-content: end;
+    font-size: 2.5rem;
+}
+
+#who { grid-area: who; }
+#projects { grid-area: projects; }
+#team { grid-area: team; }
+#services { grid-area: services; }
+
+article {
+    width: 80%;
+    height: 100%;
+}
+
+#whoWindow {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+}
+  
+#whoWindowHeader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+}
+
+footer {
+    width: 100%;
+    height: 4%;
+    position: relative;
+    background-color: var(--colorOne);
+    box-shadow: var(--colorTwo) 0px -3px 1px 0px;
+    display: grid;
+    grid-template: "start taskbar clock" 100% / 7% 1fr 6%;
+}
+
+.start {
+    grid-area: start;
+    align-content: center;
+    list-style: none;
+}
+
+.start li {
+    width: 95%;
+    height: 99%;
+    font-size: 1.4rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px #333;
+    font-style: italic;
+    background: radial-gradient(circle, var(--colorFive) 0%, var(--colorFour) 100%) center/cover no-repeat;
+    box-shadow: 0px 5px 10px #79ce71 inset;
+    border-radius: 0px 10px 15px 0px;
+    border: none;
+    transform: skewX(-3deg);
+    text-align: center;
+    align-content: center;  
+}
+
+.taskbar { grid-area: taskbar; }
+
+.clock {
+    grid-area: clock;
+    text-align: center;
+    align-content: center;
+    color: #ffffff;
+    background-color: var(--colorThree);
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
+@media (width > 1279px) {
+    body { background-size: cover; }
+    main { height: 94%; }
+    footer {
+        height: 6%;
+        grid-template: "start taskbar clock" 100% / 10% 1fr 8%;
+    }
+}
+
+@media (width < 1025px) {
+    main { height: 94%; }
+
+    footer {
+        height: 6%; 
+        grid-template: "start taskbar clock" 100% / 10% 1fr 8%;
+    }
+}
+
+@media (width < 769px) {
+    footer { grid-template: "start taskbar clock" 100% / 15% 1fr 10%; }
+}
+
+@media (width < 426px) {
+    footer { grid-template: "start taskbar clock" 100% / 30% 1fr 23%; }
+}
+
+/* ---------- RESPONSIVIDADE ---------- */
