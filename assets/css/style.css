@@ -1,9 +1,9 @@
 /* ---------- HOVER - ACTIVE - FOCUS ---------- */
-section:focus > i { 
+.desktopIcons:focus > i { 
     color: var(--colorThree);
 }
 
-section:focus > label { 
+.desktopIcons:focus > label { 
     text-shadow: 1px 1px 2px var(--colorThree);
     -webkit-text-stroke: 1px var(--colorThree);
 }
@@ -35,9 +35,15 @@ body {
 }
 
 main {
-    position: relative;
     width: 100%;
     height: 96%;
+    display: flex;
+}
+
+aside {
+    position: relative;
+    width: 20%;
+    height: 100%;
     display: grid;
     grid-template:
         "who" 7rem
@@ -49,42 +55,52 @@ main {
     grid-gap: 1rem;
 }
 
-section {
+.desktopIcons {
     display: flex;
     flex-direction: column;
 }
 
-section label, section i {
+.desktopIcons label, .desktopIcons i {
     width: 100%;
     height: 50%;
     text-align: center;
 }
 
-label {
+.desktopIcons label {
     font-size: 1.3rem;
     font-weight: lighter;
     text-overflow: ellipsis;
 }
 
-i {
+.desktopIcons i {
     align-content: end;
     font-size: 2.5rem;
 }
 
-#who {
-    grid-area: who;
+#who { grid-area: who; }
+#projects { grid-area: projects; }
+#team { grid-area: team; }
+#services { grid-area: services; }
+
+article {
+    width: 80%;
+    height: 100%;
 }
 
-#projects {
-    grid-area: projects;
+#whoWindow {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
 }
-
-#team {
-    grid-area: team;
-}
-
-#services {
-    grid-area: services;
+  
+#whoWindowHeader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
 }
 
 footer {
