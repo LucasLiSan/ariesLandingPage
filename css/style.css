@@ -28,7 +28,7 @@ body {
     height: 100vh;
     position: absolute;
     overflow: hidden;
-    background: url("./imgs/backgroundImg.jpg");
+    background: url("../imgs/backgroundImg.jpg");
     background-repeat: no-repeat;
     background-size: auto;
     font-family: 'Gill Sans', 'Gill Sans MT', Verdana, sans-serif;
