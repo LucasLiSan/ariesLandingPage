@@ -1,12 +1,18 @@
 /* ---------- HOVER - ACTIVE - FOCUS ---------- */
-.desktopIcons:focus > i { 
-    color: var(--colorThree);
-}
+.desktopIcons:focus > i { color: var(--colorThree); }
 
 .desktopIcons:focus > label { 
     text-shadow: 1px 1px 2px var(--colorThree);
     -webkit-text-stroke: 1px var(--colorThree);
 }
+
+.minimize:hover, .maximize:hover { background: radial-gradient(circle, rgba(150,0,255,1) 0%, rgba(201,0,225,1) 31%, rgba(255,0,193,1) 97%); }
+
+.minimize:active, .maximize:active { background: radial-gradient(circle, rgba(255,0,193,1) 0%, rgba(201,0,225,1) 31%, rgba(150,0,255,1) 97%); }
+
+.close:hover { background: radial-gradient(circle, rgba(73,0,255,1) 0%, rgba(35,96,255,1) 31%, rgba(0,184,255,1) 86%); }
+
+.close:active { background: radial-gradient(circle, rgba(0,184,255,1) 0%, rgba(35,96,255,1) 31%, rgba(73,0,255,1) 86%); }
 
 /* ---------- HOVER - ACTIVE - FOCUS ---------- */
 
@@ -87,20 +93,94 @@ article {
     height: 100%;
 }
 
-#whoWindow {
+section {
     position: absolute;
-    z-index: 9;
-    background-color: #f1f1f1;
-    border: 1px solid #d3d3d3;
+    width: 55%;
+    height: 70%;
+    background-color: var(--colorOne);
+    border: 2px solid var(--colorOne);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
     text-align: center;
+    z-index: 9;
 }
   
 #whoWindowHeader {
-    padding: 10px;
-    cursor: move;
+    height: 2rem;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template:
+        "folderName actionBtns" 100%
+        /50% 25%
+    ;
     z-index: 10;
-    background-color: #2196F3;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    background-color: var(--colorOne);
     color: #fff;
+}
+
+.windowName {
+    height: 100%;
+    display: flex;
+    grid-area: folderName;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.windowName i { width: 10%; }
+
+.windowName label {
+    width: 90%;
+    height: 100%;
+    text-align: start;
+    align-content: center;
+}
+
+.actionBtns {
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    grid-area: actionBtns;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.actionBtns li {
+    width: 30%;
+    height: 90%;
+    align-content: center;
+    border: solid 1px #ffffff;
+}
+
+.close {
+    border-top-right-radius: 1rem;
+    background: radial-gradient(circle, rgba(73,0,255,1) 0%, rgba(0,184,255,1) 87%);
+}
+
+.optBar {
+    width: 100%;
+    height: 2rem;
+    display: grid;
+    justify-content: space-between;
+    align-items: center;
+    grid-template: 
+        "dropdownMenu logo" 100%
+        / 50% 10%
+    ;
+    background-color: #c2c2c2;
+}
+
+.dropdownMenu {
+    grid-area: dropdownMenu;
+    display: flex;
+}
+
+.logo {
+    grid-area: logo;
 }
 
 footer {
@@ -108,7 +188,7 @@ footer {
     height: 4%;
     position: relative;
     background-color: var(--colorOne);
-    box-shadow: var(--colorTwo) 0px -3px 1px 0px;
+    box-shadow: var(--colorOne) 0px -3px 1px 0px;
     display: grid;
     grid-template: "start taskbar clock" 100% / 7% 1fr 6%;
 }
@@ -126,8 +206,8 @@ footer {
     color: #ffffff;
     text-shadow: 1px 1px 1px #333;
     font-style: italic;
-    background: radial-gradient(circle, var(--colorFive) 0%, var(--colorFour) 100%) center/cover no-repeat;
-    box-shadow: 0px 5px 10px #79ce71 inset;
+    background: var(--colorFour);
+    box-shadow: var(--colorFour) 0px -3px 1px 0px;
     border-radius: 0px 10px 15px 0px;
     border: none;
     transform: skewX(-3deg);
@@ -143,6 +223,7 @@ footer {
     align-content: center;
     color: #ffffff;
     background-color: var(--colorThree);
+    box-shadow: var(--colorThree) 0px -3px 1px 0px;
 }
 
 /* ---------- RESPONSIVIDADE ---------- */
