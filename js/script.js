@@ -45,3 +45,25 @@ function dragElement(elmnt) {
 		document.onmousemove = null;
 	}
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const selectSelected = document.querySelector('.select-selected');
+    const selectItems = document.querySelector('.select-items');
+
+    selectSelected.addEventListener('click', function() { selectItems.classList.toggle('select-hide'); });
+
+    selectItems.addEventListener('click', function(e) {
+        if (e.target.tagName === 'DIV') {
+            const selectedValue = e.target.getAttribute('data-value');
+            const selectedText = e.target.innerHTML;
+            selectSelected.innerHTML = selectedText;
+            selectItems.classList.add('select-hide');
+            
+            console.log('Selected value:', selectedValue);
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!selectSelected.contains(e.target) && !selectItems.contains(e.target)) { selectItems.classList.add('select-hide'); }
+    });
+});
